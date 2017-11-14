@@ -14,20 +14,20 @@
 
 
 <ion-content padding>
-  <ion-img width="200" height="200" src="../../assets/imgs/logo_text.png"></ion-img>
+  <ion-img width="200" height="200" src="assets/imgs/logo_text.png"></ion-img>
   <ion-list>
       <ion-item>
         <ion-label stacked>Email</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" [(ngModel)]="email"></ion-input>
       </ion-item>
     
       <ion-item>
         <ion-label stacked>Password</ion-label>
-        <ion-input type="password"></ion-input>
+        <ion-input type="password" [(ngModel)]="password"></ion-input>
       </ion-item>
     </ion-list>
 
-    <button ion-button block>Sign in</button>
+    <button ion-button block (click)="onLogin()">Sign in</button>
 
     <p>If you dont have account please create one on our website</p>
 </ion-content>

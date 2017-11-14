@@ -1,3 +1,4 @@
+import { AuthServiceProvider } from './../providers/auth-service/auth-service';
 import { LoginPage } from './../pages/login/login';
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
@@ -7,7 +8,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers: [AuthServiceProvider]
 })
 export class MyApp {
   rootPage:any = LoginPage;

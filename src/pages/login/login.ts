@@ -1,3 +1,4 @@
+import { AuthServiceProvider } from './../../providers/auth-service/auth-service';
 import { TabsPage } from './../tabs/tabs';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -17,10 +18,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class LoginPage {
 
   private logged = false;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  email;
+  password;
 
-    const logged = false;
-    
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private authService: AuthServiceProvider) {
+    this.navigateToTabs();
   }
 
   ionViewDidLoad() {
@@ -28,7 +31,16 @@ export class LoginPage {
   }
 
   onLogin() {
-    this.navigateToTabs();
+    this.authService.loginClient(this.email, this.password).subscribe(
+      (token) => {
+        this.authService.getUserData().subscribe(
+          (data) => {
+            this.logged = true;
+            this.navigateToTabs();
+          }
+        );
+      }
+    );
   }
 
   navigateToTabs() {

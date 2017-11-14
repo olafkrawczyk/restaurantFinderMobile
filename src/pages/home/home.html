@@ -1,17 +1,45 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Find</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <h2>Find restaurant</h2>
+  <p>To start please fill form below</p>
+  <ion-list>
+    <ion-item>
+      <ion-label>City</ion-label>
+      <ion-select [(ngModel)]="city">
+        <ion-option value="Wroclaw">Wrocław</ion-option>
+        <ion-option value="Warszawa">Warszawa</ion-option>
+        <ion-option value="Katowice">Katowice</ion-option>
+        <ion-option value="Kraków">Kraków</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Guests</ion-label>
+      <ion-select [(ngModel)]="guests">
+        <ion-option value="2">2</ion-option>
+        <ion-option value="3">3</ion-option>
+        <ion-option value="4">4</ion-option>
+        <ion-option value="5">5</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Cuisine</ion-label>
+      <ion-select [(ngModel)]="cuisine">
+        <ion-option value="italian">italian</ion-option>
+        <ion-option value="japanese">japanese</ion-option>
+        <ion-option value="polish">polish</ion-option>
+        <ion-option value="thai">thai</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Date</ion-label>
+      <ion-datetime displayFormat="DD MMM HH:00" [(ngModel)]="date"></ion-datetime>
+    </ion-item>
+    <button ion-button (click)="onSetDate()">Set date</button>
+  </ion-list>
+  <button ion-button block>Search </button>
 </ion-content>

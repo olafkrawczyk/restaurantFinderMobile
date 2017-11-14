@@ -11,7 +11,8 @@ import { LoginPage } from '../pages/login/login';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+import { DatePicker } from '@ionic-native/date-picker';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -36,10 +38,10 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
     LoginPage
   ],
   providers: [
+    DatePicker,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthServiceProvider
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}
