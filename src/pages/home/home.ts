@@ -17,19 +17,6 @@ export class HomePage {
 
   }
 
-  onSetDate() {
-    this.datePicker.show({
-      date: new Date(),
-      mode: 'date',
-      
-    }).then(
-      date => {
-        console.log('Got date: ', date);
-        this.date = date;
-      },
-      err => console.log('Error occurred while getting date: ', err)
-    );
-  }
 
   onFindRestaurants() {
     console.log(this.date);
