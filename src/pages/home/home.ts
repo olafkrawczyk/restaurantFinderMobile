@@ -1,3 +1,4 @@
+import { RestaurantProvider } from './../../providers/restaurant/restaurant';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { DatePicker } from '@ionic-native/date-picker';
@@ -12,7 +13,7 @@ export class HomePage {
   cuisine: string;
   date: Date;
 
-  constructor(public navCtrl: NavController, private datePicker: DatePicker) {
+  constructor(public navCtrl: NavController, private datePicker: DatePicker, private restaurantService: RestaurantProvider) {
 
   }
 
@@ -27,6 +28,13 @@ export class HomePage {
         this.date = date;
       },
       err => console.log('Error occurred while getting date: ', err)
+    );
+  }
+
+  onFindRestaurants() {
+    console.log(this.date);
+    this.restaurantService.getRestaurantsByParams(this.city, this.guests, this.date, this.cuisine).subscribe(
+      data => console.log(data)
     );
   }
 

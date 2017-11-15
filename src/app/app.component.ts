@@ -1,3 +1,4 @@
+import { RestaurantProvider } from './../providers/restaurant/restaurant';
 import { AuthServiceProvider } from './../providers/auth-service/auth-service';
 import { LoginPage } from './../pages/login/login';
 import { Component } from '@angular/core';
@@ -7,9 +8,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
+export const baseURL = 'http://localhost:8080/';
+
 @Component({
   templateUrl: 'app.html',
-  providers: [AuthServiceProvider]
+  providers: [AuthServiceProvider, RestaurantProvider]
 })
 export class MyApp {
   rootPage:any = LoginPage;

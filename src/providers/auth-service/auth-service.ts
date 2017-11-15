@@ -1,3 +1,4 @@
+import { baseURL } from './../../app/app.component';
 import { Http, Response, Headers, URLSearchParams } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
@@ -12,7 +13,7 @@ import 'rxjs/Rx';
 @Injectable()
 export class AuthServiceProvider {
 
-  hostAddress = 'http://10.0.2.2:8080/';
+  hostAddress = baseURL;
   token;
   email;
   requestHeaders: Headers = new Headers();
@@ -50,7 +51,7 @@ export class AuthServiceProvider {
   }
 
   getHeaders() {
-    return this.token;
+    return this.requestHeaders;
   }
 
 }

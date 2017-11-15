@@ -13,6 +13,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DatePicker } from '@ionic-native/date-picker';
 import { HttpModule } from '@angular/http';
+import { RestaurantProvider } from '../providers/restaurant/restaurant';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { HttpModule } from '@angular/http';
     DatePicker,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    RestaurantProvider
   ]
 })
 export class AppModule {}

@@ -39,7 +39,17 @@
       <ion-label>Date</ion-label>
       <ion-datetime displayFormat="DD MMM HH:00" [(ngModel)]="date"></ion-datetime>
     </ion-item>
-    <button ion-button (click)="onSetDate()">Set date</button>
   </ion-list>
-  <button ion-button block>Search </button>
+  <button ion-button block (click)="onFindRestaurants()">Search </button>
+
+  <ion-list>
+    <ion-item *ngFor="let num of [1,2,3,4,5,6,7,8,9,0]">
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/logo.png">
+      </ion-thumbnail>
+      <h2>My Neighbor Totoro</h2>
+      <p>Hayao Miyazaki • 1988</p>
+      <button ion-button clear item-end>View</button>
+    </ion-item>
+  </ion-list>
 </ion-content>
