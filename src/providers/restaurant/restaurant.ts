@@ -25,4 +25,12 @@ export class RestaurantProvider {
     map(data => data.json());
   }
 
+  getCuisines() {
+    return this.http.get(baseURL + 'availableCuisines');
+  }
+
+  getCities() {
+    return this.http.get(baseURL + 'restaurantsCities');
+  }
+
 }

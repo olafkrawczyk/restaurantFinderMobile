@@ -11,10 +11,7 @@
     <ion-item>
       <ion-label>City</ion-label>
       <ion-select [(ngModel)]="city">
-        <ion-option value="Wroclaw">Wrocław</ion-option>
-        <ion-option value="Warszawa">Warszawa</ion-option>
-        <ion-option value="Katowice">Katowice</ion-option>
-        <ion-option value="Kraków">Kraków</ion-option>
+        <ion-option [value]="city" *ngFor="let city of cities">{{ city }}</ion-option>
       </ion-select>
     </ion-item>
     <ion-item>
@@ -29,26 +26,25 @@
     <ion-item>
       <ion-label>Cuisine</ion-label>
       <ion-select [(ngModel)]="cuisine">
-        <ion-option value="italian">italian</ion-option>
-        <ion-option value="japanese">japanese</ion-option>
-        <ion-option value="polish">polish</ion-option>
-        <ion-option value="thai">thai</ion-option>
+        <ion-option value="">All</ion-option>
+        <ion-option [value]="cuisine[0]" *ngFor="let cuisine of cuisines">{{ cuisine[1] }}</ion-option>
       </ion-select>
     </ion-item>
     <ion-item>
       <ion-label>Date</ion-label>
-      <ion-datetime displayFormat="DD MMM HH:00" [(ngModel)]="date"></ion-datetime>
+      <ion-datetime displayFormat="YYYY MMM DD HH" [min]="minDate.toISOString()" [max]="maxDate.toISOString()" [(ngModel)]="date"></ion-datetime>
     </ion-item>
   </ion-list>
   <button ion-button block (click)="onFindRestaurants()">Search </button>
 
   <ion-list>
-    <ion-item *ngFor="let num of [1,2,3,4,5,6,7,8,9,0]">
+    <ion-item *ngFor="let restaurant of restaurants">
       <ion-thumbnail item-start>
         <img src="assets/imgs/logo.png">
       </ion-thumbnail>
-      <h2>My Neighbor Totoro</h2>
-      <p>Hayao Miyazaki • 1988</p>
+      <h2>{{ restaurant.name }}</h2>
+      <p> {{ restaurant.cuisine }} • {{ restaurant.address.street }} • {{ restaurant.openHour }} - {{ restaurant.closeHour }}
+        </p>
       <button ion-button clear item-end>View</button>
     </ion-item>
   </ion-list>
