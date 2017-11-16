@@ -1,0 +1,52 @@
+<!--
+  Generated template for the RestaurantDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ restaurant.name }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="bg-style">
+
+  <ion-card>
+    <ion-card-header>Details</ion-card-header>
+    <ion-card-content>
+      <p>
+        <ion-badge item-end>{{ restaurant.cuisine }}</ion-badge>
+        <br> {{ restaurant.openHour }} - {{ restaurant.closeHour }}
+        <br> {{ restaurant.phone }}
+        <br> {{ restaurant.address.street }}, {{ restaurant.address.city }}
+        <br>
+      </p>
+      <hr>
+      <p>
+        {{ restaurant.details }}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>Menu</ion-card-header>
+    <ion-list>
+      <ion-item *ngFor="let menuItem of restaurant.menuItems">
+        <p>
+          {{ menuItem.dishName }}
+        </p>
+        <p>
+          <i>{{ menuItem.description }}</i>
+        </p>
+        <p clear item-end>
+          {{ menuItem.price }}
+        </p>
+        <hr>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+</ion-content>

@@ -1,3 +1,4 @@
+import { RestaurantDetailsPage } from './../pages/restaurant-details/restaurant-details';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -22,7 +23,8 @@ import { RestaurantProvider } from '../providers/restaurant/restaurant';
     ContactPage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    RestaurantDetailsPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import { RestaurantProvider } from '../providers/restaurant/restaurant';
     ContactPage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    RestaurantDetailsPage
   ],
   providers: [
     DatePicker,

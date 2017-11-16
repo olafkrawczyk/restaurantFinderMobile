@@ -1,3 +1,4 @@
+import { RestaurantDetailsPage } from './../restaurant-details/restaurant-details';
 import { RestaurantProvider } from './../../providers/restaurant/restaurant';
 import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
@@ -42,6 +43,11 @@ export class HomePage implements OnInit {
     this.restaurantService.getRestaurantsByParams(this.city, this.guests, this.date, this.cuisine).subscribe(
       data => this.restaurants = data
     );
+  }
+
+  onRestaurantDetails(restaurant) {
+    let requestData = {guests: this.guests, date: this.date};
+    this.navCtrl.push(RestaurantDetailsPage, {request: requestData,restaurant: restaurant});
   }
 
 }
