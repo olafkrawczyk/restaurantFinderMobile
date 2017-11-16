@@ -33,4 +33,9 @@ export class RestaurantProvider {
     return this.http.get(baseURL + 'restaurantsCities');
   }
 
+  getReservations() {
+    let id = this.authService.getUser().id;
+    return this.http.get(baseURL + 'reservations/client/' + id, {headers: this.authService.getHeaders()});
+  }
+
 }

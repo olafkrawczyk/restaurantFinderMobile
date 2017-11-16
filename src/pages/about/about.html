@@ -6,6 +6,24 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content padding class="bg-style">
+  <ion-card *ngFor="let reservation of reservations">
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <h2>{{ reservation.restaurant.name }}</h2>
+            <ion-badge clear item-end>{{reservation.status}}</ion-badge>
+          </ion-col>
+          <ion-col col-8>
+            <p>Date: {{ reservation.reservationDate.toLocaleString().slice(0, -3) }}
+              <br> Table: {{ reservation.restaurantTableTO.restaurantTableId }}
+              <br> {{ reservation.restaurantTableTO.seats }} guests
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <button ion-button block clear item-end>Cancel</button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
