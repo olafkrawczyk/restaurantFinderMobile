@@ -1,7 +1,6 @@
 import { baseURL } from './../../app/app.component';
-import { Http, Response, Headers, URLSearchParams } from '@angular/http';
+import { Http, Headers, URLSearchParams } from '@angular/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 
 /*

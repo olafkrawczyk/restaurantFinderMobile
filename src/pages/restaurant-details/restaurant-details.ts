@@ -17,6 +17,7 @@ export class RestaurantDetailsPage implements OnInit {
 
   restaurant;
   request;
+  availableTables: any[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -24,10 +25,17 @@ export class RestaurantDetailsPage implements OnInit {
   ngOnInit() {
     this.restaurant = this.navParams.get('restaurant');
     this.request = this.navParams.get('request')
+    this.getAvailableTables();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RestaurantDetailsPage');
   }
 
+  getAvailableTables() {
+    // this.restaurantService.getAvailableSlots(this.request.date, this.restaurant.id, this.request.guests).subscribe(
+    //   data => this.availableTables = data.json(),
+    //   error => console.log(error)
+    // );
+  }
 }

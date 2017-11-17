@@ -1,4 +1,4 @@
-import { RestaurantDetailsPage } from './../pages/restaurant-details/restaurant-details';
+import { RestaurantDetailsPageModule } from './../pages/restaurant-details/restaurant-details.module';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -14,7 +14,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DatePicker } from '@ionic-native/date-picker';
 import { HttpModule } from '@angular/http';
-import { RestaurantProvider } from '../providers/restaurant/restaurant';
 
 @NgModule({
   declarations: [
@@ -24,12 +23,12 @@ import { RestaurantProvider } from '../providers/restaurant/restaurant';
     HomePage,
     TabsPage,
     LoginPage,
-    RestaurantDetailsPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
+    RestaurantDetailsPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -38,15 +37,13 @@ import { RestaurantProvider } from '../providers/restaurant/restaurant';
     ContactPage,
     HomePage,
     TabsPage,
-    LoginPage,
-    RestaurantDetailsPage
+    LoginPage
   ],
   providers: [
     DatePicker,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    RestaurantProvider
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}

@@ -1,8 +1,6 @@
-import { RestaurantDetailsPage } from './../restaurant-details/restaurant-details';
 import { RestaurantProvider } from './../../providers/restaurant/restaurant';
 import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { DatePicker } from '@ionic-native/date-picker';
 import * as moment from 'moment';
 
 @Component({
@@ -22,7 +20,7 @@ export class HomePage implements OnInit {
 
   restaurants: any[];
 
-  constructor(public navCtrl: NavController, private datePicker: DatePicker, private restaurantService: RestaurantProvider) {
+  constructor(public navCtrl: NavController, private restaurantService: RestaurantProvider) {
     this.minDate = new Date();
     this.maxDate = moment(this.minDate).add(1, 'year').toDate();
   }
@@ -47,7 +45,7 @@ export class HomePage implements OnInit {
 
   onRestaurantDetails(restaurant) {
     let requestData = {guests: this.guests, date: this.date};
-    this.navCtrl.push(RestaurantDetailsPage, {request: requestData,restaurant: restaurant});
+    this.navCtrl.push('RestaurantDetailsPage', {request: requestData, restaurant: restaurant});
   }
 
 }

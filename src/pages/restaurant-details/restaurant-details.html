@@ -36,19 +36,9 @@
     <ion-card-header>Available tables</ion-card-header>
     <ion-card-content>
       <ion-list>
-        <ion-item>
-          <h2>A1</h2>
-          <p>15:00</p>
-          <button ion-button clear item-end>Reserve</button>
-        </ion-item>
-        <ion-item>
-          <h2>A1</h2>
-          <p>15:00</p>
-          <button ion-button clear item-end>Reserve</button>
-        </ion-item>
-        <ion-item>
-          <h2>A1</h2>
-          <p>15:00</p>
+        <ion-item *ngFor="let table of availableTables">
+          <h2>{{ table.restaurantTable.restaurantTableId }}</h2>
+          <p>{{ table.date }}</p>
           <button ion-button clear item-end>Reserve</button>
         </ion-item>
       </ion-list>

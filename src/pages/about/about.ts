@@ -19,6 +19,18 @@ export class AboutPage implements OnInit {
 
   ngOnInit(): void {
     this.username = this.authService.getUser().firstName;
+    this.refreshReservations();
+  }
+
+  onCancelReservation(id) {
+    this.restaurantService.cancelReservation(id).subscribe(
+      data => {
+        this.refreshReservations();
+      }
+    );
+  }
+  
+  refreshReservations() {
     this.restaurantService.getReservations().subscribe(
       (data) => {
         let temp = data.json();
@@ -30,5 +42,4 @@ export class AboutPage implements OnInit {
       error => console.log(error)
     );
   }
-
 }
