@@ -22,6 +22,10 @@ export class AboutPage implements OnInit {
     this.refreshReservations();
   }
 
+  ionViewDidLoad() {
+    this.refreshReservations();
+  }
+
   onCancelReservation(id) {
     this.restaurantService.cancelReservation(id).subscribe(
       data => {
@@ -37,7 +41,7 @@ export class AboutPage implements OnInit {
         temp.forEach(element => {
           element.reservationDate = new Date(element.reservationDate);
         });
-        this.reservations = temp;
+        this.reservations = temp.reverse();
       },
       error => console.log(error)
     );

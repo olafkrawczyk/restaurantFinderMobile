@@ -1,4 +1,6 @@
-import { RestaurantDetailsPageModule } from './../pages/restaurant-details/restaurant-details.module';
+import { RestaurantProvider } from './../providers/restaurant/restaurant';
+import { AuthServiceProvider } from './../providers/auth-service/auth-service';
+import { RestaurantDetailsPage} from './../pages/restaurant-details/restaurant-details';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -22,13 +24,12 @@ import { HttpModule } from '@angular/http';
     ContactPage,
     HomePage,
     TabsPage,
-    LoginPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
-    RestaurantDetailsPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

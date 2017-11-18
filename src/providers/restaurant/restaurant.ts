@@ -1,6 +1,6 @@
 import { baseURL } from './../../app/app.component';
 import { AuthServiceProvider } from './../auth-service/auth-service';
-import { Http } from '@angular/http';
+import { Http, URLSearchParams } from '@angular/http';
 import { Injectable } from '@angular/core';
 
 import 'rxjs/RX';
@@ -44,12 +44,15 @@ export class RestaurantProvider {
     return this.http.post(baseURL + 'reservations/cancel', { restaurantId: id }, { params: params, headers: this.authService.getHeaders() });
   }
 
-  getAvailableSlots(date: Date, restaurantId, seats) {
-    const params = new URLSearchParams();
+  getAvailableSlots(date, restaurantId, seats) {
+    let params = new URLSearchParams();
 
-    params.append('seats', String(seats));
-    params.append('restaurantId', String(restaurantId));
-    params.append('date', date.toISOString());
+    params.set('seats', String(seats));
+    params.set('restaurantId', String(restaurantId));
+    params.set('date', date);
+
+    console.log(params);
+
 
     return this.http.get(baseURL + 'reservations/availableSlots', { params: params, headers: this.authService.getHeaders() });
   }

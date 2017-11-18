@@ -1,7 +1,7 @@
 import { RestaurantProvider } from './../providers/restaurant/restaurant';
 import { AuthServiceProvider } from './../providers/auth-service/auth-service';
 import { LoginPage } from './../pages/login/login';
-import { Component } from '@angular/core';
+import { Component, forwardRef,  } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -10,7 +10,7 @@ export const baseURL = 'http://localhost:8080/';
 
 @Component({
   templateUrl: 'app.html',
-  providers: [AuthServiceProvider, RestaurantProvider]
+  providers: [forwardRef(()=>AuthServiceProvider), forwardRef(()=>RestaurantProvider)]
 })
 export class MyApp {
   rootPage:any = LoginPage;

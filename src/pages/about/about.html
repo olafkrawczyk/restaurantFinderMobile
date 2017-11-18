@@ -23,7 +23,9 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-      <button ion-button block clear item-end (click)="onCancelReservation(reservation.id)">Cancel</button>
+      <div *ngIf="reservation.status != 'CANCELED' && reservation.status != 'REJECTED'" >
+        <button ion-button block clear item-end (click)="onCancelReservation(reservation.id)">Cancel</button>
+      </div>
     </ion-card-content>
   </ion-card>
 </ion-content>

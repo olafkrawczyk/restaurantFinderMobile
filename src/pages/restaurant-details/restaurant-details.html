@@ -38,8 +38,8 @@
       <ion-list>
         <ion-item *ngFor="let table of availableTables">
           <h2>{{ table.restaurantTable.restaurantTableId }}</h2>
-          <p>{{ table.date }}</p>
-          <button ion-button clear item-end>Reserve</button>
+          <p>{{ table.restaurantTable.seats }} seats, {{ table.reservationDate.toLocaleString().slice(0, -3) }}</p>
+          <button ion-button clear item-end (click)="onReserveTable(table)">Reserve</button>
         </ion-item>
       </ion-list>
     </ion-card-content>
