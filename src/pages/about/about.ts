@@ -22,7 +22,7 @@ export class AboutPage implements OnInit {
     this.refreshReservations();
   }
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     this.refreshReservations();
   }
 
