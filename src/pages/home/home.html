@@ -32,7 +32,7 @@
     </ion-item>
     <ion-item>
       <ion-label>Date</ion-label>
-      <ion-datetime displayFormat="YYYY MMM DD HH" [min]="minDate.toISOString()" [max]="maxDate.toISOString()" [(ngModel)]="date"></ion-datetime>
+      <ion-datetime displayFormat="YYYY MMM DD HH:00" [min]="minDate.toISOString()" [max]="maxDate.toISOString()" [(ngModel)]="date"></ion-datetime>
     </ion-item>
   </ion-list>
   <button ion-button block (click)="onFindRestaurants()">Search </button>
