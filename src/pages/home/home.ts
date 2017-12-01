@@ -22,6 +22,7 @@ export class HomePage implements OnInit {
 
   constructor(public navCtrl: NavController, private restaurantService: RestaurantProvider) {
     this.minDate = new Date();
+    this.minDate.setHours(this.minDate.getHours()+1);
     this.maxDate = moment(this.minDate).add(1, 'year').toDate();
   }
 
@@ -37,14 +38,22 @@ export class HomePage implements OnInit {
 
 
   onFindRestaurants() {
-    console.log(moment(this.date));
-    this.restaurantService.getRestaurantsByParams(this.city, this.guests, this.date, this.cuisine).subscribe(
+    console.log('huj');
+    console.log(this.date);
+    
+    let inputDate = new Date(this.date);
+    inputDate.setMinutes(0,0);
+    inputDate.setHours(inputDate.getHours()-1);
+    this.date = inputDate;
+
+    console.log(inputDate);
+    this.restaurantService.getRestaurantsByParams(this.city, this.guests, inputDate.toISOString(), this.cuisine).subscribe(
       data => this.restaurants = data
     );
   }
 
   onRestaurantDetails(restaurant) {
-    let requestData = {guests: this.guests, date: this.date};
+    let requestData = {guests: this.guests, date: this.date.toISOString()};
     this.navCtrl.push('RestaurantDetailsPage', {request: requestData, restaurant: restaurant});
   }
 

@@ -1,7 +1,7 @@
 import { AuthServiceProvider } from './../../providers/auth-service/auth-service';
 import { TabsPage } from './../tabs/tabs';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 
 /**
  * Generated class for the LoginPage page.
@@ -22,7 +22,7 @@ export class LoginPage {
   password;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private authService: AuthServiceProvider) {
+    private authService: AuthServiceProvider, public toastCtrl: ToastController) {
     this.navigateToTabs();
   }
 
@@ -37,9 +37,11 @@ export class LoginPage {
           (data) => {
             this.logged = true;
             this.navigateToTabs();
-          }
+          },
+          error => this.presentToast()
         );
-      }
+      },
+      error => this.presentToast()
     );
   }
 
@@ -47,6 +49,14 @@ export class LoginPage {
     if (this.logged === true) {
       this.navCtrl.setRoot(TabsPage);
     }
+  }
+
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'Login error. Please chcek your credentials',
+      duration: 5000
+    });
+    toast.present();
   }
 
 }
