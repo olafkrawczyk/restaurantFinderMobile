@@ -6,7 +6,7 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-export const baseURL = 'http://localhost:8080/';
+export const baseURL = 'https://tablersv.herokuapp.com/';
 
 @Component({
   templateUrl: 'app.html',
